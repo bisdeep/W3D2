@@ -66,9 +66,9 @@ class Board
     end
 
     def reveal(guessed_pos)
-        if @grid[guessed_pos[0]][guessed_pos[1]].face_down
-            @grid[guessed_pos[0]][guessed_pos[1]].reveal
-            return @grid[guessed_pos[0]][guessed_pos[1]].to_s
+        if @grid[guessed_pos[0].to_i][guessed_pos[1].to_i].face_down
+            @grid[guessed_pos[0].to_i][guessed_pos[1].to_i].reveal
+            return @grid[guessed_pos[0].to_i][guessed_pos[1].to_i].to_s
         end
     end
 
