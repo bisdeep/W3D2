@@ -16,15 +16,11 @@ class Card
     end
 
     def hide
-        if !(@face_down)
-            @face_down = true
-        end
+         @face_down = true
     end
 
     def reveal
-        if @face_down
-            @face_down = false
-        end
+        @face_down = false
     end
 
     def to_s

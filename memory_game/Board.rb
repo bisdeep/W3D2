@@ -1,4 +1,5 @@
 require_relative "Card.rb"
+require "byebug"
 
 class Board
     @@size = 4
@@ -48,6 +49,8 @@ class Board
             row.each_with_index do |value, y|
                 if !@grid[x][y].face_down
                     newString += @grid[x][y].to_s + " "
+                else
+                    newString += "  "
                 end
             end
             print newString + "\n"
@@ -66,14 +69,19 @@ class Board
     end
 
     def reveal(guessed_pos)
-        if @grid[guessed_pos[0].to_i][guessed_pos[1].to_i].face_down
-            @grid[guessed_pos[0].to_i][guessed_pos[1].to_i].reveal
-            return @grid[guessed_pos[0].to_i][guessed_pos[1].to_i].to_s
+        if @grid[guessed_pos[0]][guessed_pos[1]].face_down
+            @grid[guessed_pos[0]][guessed_pos[1]].reveal
+            return (@grid[guessed_pos[0]][guessed_pos[1]]).to_s
         end
     end
 
+    def value(position)
+        return (@grid[position[0]][position[1]]).to_s
+    end
 
+    def hide(guessed_pos)
+        @grid[guessed_pos[0]][guessed_pos[1]].hide
+        return (@grid[guessed_pos[0]][guessed_pos[1]]).to_s
+    end
 end
 
-b = Board.new
-p b
