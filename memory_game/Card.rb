@@ -11,6 +11,10 @@ class Card
         @face_value = value #value of the card
     end
 
+    def face_down
+        @face_down
+    end
+
     def hide
         if !(@face_down)
             @face_down = true
@@ -25,7 +29,6 @@ class Card
 
     def to_s
         #if its revealed, turn the value ito a string
-        
         @face_value.to_s
     end
 
